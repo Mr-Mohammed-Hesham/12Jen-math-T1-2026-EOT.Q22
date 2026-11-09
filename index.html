@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📝 Written Exam: Quadratic Inequalities - رياضيات 12 عام | Mr. Mohammed Hesham</title>
+<meta name="description" content="امتحان كتابي (مقالي) عن حل المتباينات التربيعية بمتغير واحد - صف 12 عام">
+<meta name="author" content="Mr. Mohammed Hesham">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Cairo', sans-serif; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); }
+body.en-mode { font-family: 'Inter', sans-serif; direction: ltr; }
+.arabic-math { font-family: 'Amiri', 'Cairo', serif; }
+.math-display { display: inline-block; direction: ltr; font-family: 'Amiri', serif; font-size: 1.15em; padding: 2px 8px; background: #dbeafe; border-radius: 4px; margin: 2px; color: #1e40af; font-weight: 700; }
+.save-indicator { position: fixed; bottom: 20px; left: 20px; z-index: 200; background: #10b981; color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+body.en-mode .save-indicator { left: auto; right: 20px; }
+.save-indicator.show { opacity: 1; }
+.lang-switch { position: fixed; top: 16px; left: 16px; z-index: 100; background: white; padding: 6px; border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: flex; gap: 4px; border: 2px solid #2563eb; }
+body.en-mode .lang-switch { left: auto; right: 16px; }
+.lang-btn { padding: 6px 14px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: all 0.3s; border: none; font-size: 0.875rem; background: transparent; color: #6b7280; }
+.lang-btn.active { background: #2563eb; color: white; box-shadow: 0 2px 6px rgba(37,99,235,0.4); }
+.timer-warning { color: #dc2626 !important; animation: pulse 1s infinite; }
+@keyframes pulse { 50% { opacity: 0.7; } }
+@media print { .no-print { display: none !important; } .model-box { display: none !important; } textarea { border: 1px solid #9ca3af !important; } }
+.svg-graph { display: block; margin: 12px auto; background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 8px; max-width: 100%; }
+.graph-container { text-align: center; margin: 10px 0; }
+.q-card { background: white; border: 2px solid #2563eb; border-radius: 16px; padding: 20px; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.q-statement { background: #dbeafe; border: 2px solid #2563eb; border-radius: 8px; padding: 12px; font-size: 1.05rem; font-weight: 700; color: #1e3a8a; }
+.answer-area { width: 100%; min-height: 170px; border: 2px solid #2563eb; border-radius: 10px; background: #eff6ff; padding: 12px; font-family: 'Cairo', sans-serif; font-size: 1rem; line-height: 2; background-image: repeating-linear-gradient(transparent, transparent 31px, #94a3b8 32px); resize: vertical; }
+.answer-area:focus { outline: none; border-color: #d97706; background-color: #fefce8; }
+.model-box { background: #f0fdf4; border: 2px solid #16a34a; border-radius: 10px; padding: 14px; margin-top: 12px; }
+.model-step { padding: 6px 10px; border-bottom: 1px dashed #86efac; font-family: 'Amiri', serif; direction: ltr; text-align: left; font-size: 1.05rem; color: #14532d; }
+.model-step .step-no { display: inline-block; background: #16a34a; color: white; border-radius: 50%; width: 22px; height: 22px; text-align: center; font-size: 0.8rem; line-height: 22px; margin-right: 8px; font-family: 'Cairo', sans-serif; }
+.final-answer { background: #dcfce7; border: 2px solid #16a34a; border-radius: 8px; padding: 10px; margin-top: 10px; text-align: center; font-weight: 800; color: #166534; font-size: 1.1rem; font-family: 'Amiri', serif; direction: ltr; }
+.rubric-chip { display: inline-block; background: #dbeafe; border: 1px solid #2563eb; color: #1e40af; border-radius: 14px; padding: 2px 10px; font-size: 0.75rem; margin: 2px; font-weight: 600; }
+.score-input { width: 70px; border: 2px solid #2563eb; border-radius: 8px; padding: 6px; text-align: center; font-weight: 800; font-size: 1.1rem; color: #1e40af; background: #eff6ff; }
+.check-item { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #374151; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 4px 10px; }
+.section-head { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; border-radius: 12px; padding: 10px 20px; font-weight: 800; font-size: 1.15rem; margin: 30px 0 18px; box-shadow: 0 4px 10px rgba(29,78,216,0.3); }
+</style>
+</head>
+<body class="p-4 md:p-8 min-h-screen">
+
+<div class="lang-switch no-print">
+<button class="lang-btn active" onclick="setLanguage('ar')" id="btn-ar">عربي</button>
+<button class="lang-btn" onclick="setLanguage('en')" id="btn-en">EN</button>
+</div>
+
+<div id="saveIndicator" class="save-indicator">💾 <span data-ar="تم الحفظ" data-en="Saved">تم الحفظ</span></div>
+
+<div id="timer-container" class="max-w-4xl mx-auto mb-4 text-center no-print">
+<div class="bg-white p-4 rounded-2xl shadow-lg inline-block border-2 border-blue-200">
+<span class="text-gray-600 ml-2">⏰ <span data-ar="الوقت المتبقي:" data-en="Time Left:">الوقت المتبقي:</span></span>
+<span id="timer" class="text-2xl font-bold text-blue-700 font-mono">60:00</span>
+<span class="ml-3 inline-block bg-blue-700 text-white px-3 py-1 rounded-full text-xs font-bold">📝 <span data-ar="امتحان كتابي (مقالي)" data-en="Written Exam">امتحان كتابي (مقالي)</span> - 10 <span data-ar="مسائل" data-en="Problems">مسائل</span></span>
+</div>
+</div>
+
+<div class="max-w-4xl mx-auto mb-6 flex flex-wrap gap-3 justify-center no-print">
+<button onclick="toggleAllModels()" class="bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-xl font-medium transition shadow">🔑 <span data-ar="إظهار/إخفاء الحلول النموذجية" data-en="Show/Hide Model Solutions">إظهار/إخفاء الحلول النموذجية</span></button>
+<button onclick="gradeExam()" class="bg-amber-600 hover:bg-amber-700 text-white px-5 py-2 rounded-xl font-medium transition shadow">🧮 <span data-ar="احتساب المجموع" data-en="Compute Total">احتساب المجموع</span></button>
+<button onclick="window.print()" class="bg-gray-700 hover:bg-gray-900 text-white px-5 py-2 rounded-xl font-medium transition shadow">🖨️ <span data-ar="طباعة" data-en="Print">طباعة</span></button>
+<button onclick="clearProgress()" class="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-xl font-medium transition shadow">🗑️ <span data-ar="مسح المحفوظ" data-en="Clear Saved">مسح المحفوظ</span></button>
+</div>
+
+<header class="max-w-4xl mx-auto bg-white p-8 rounded-3xl shadow-2xl mb-6 border-4 border-blue-500">
+<div class="text-center">
+<div class="inline-block bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-bold mb-4">MATH GRADE 12 GENERAL - QUESTION 22 (WRITTEN)</div>
+<h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">📝 <span data-ar="حل المتباينات التربيعية بمتغير واحد" data-en="Solving Quadratic Inequalities in One Variable">حل المتباينات التربيعية بمتغير واحد</span></h1>
+<h2 class="text-xl text-blue-700 font-semibold mb-2"><span data-ar="القسم الثاني: الأسئلة المقالية - ص 74 (مثال 2)، ص 75 (مثال 3)" data-en="Part Two: Written - Page 74 (Ex. 2), Page 75 (Ex. 3)">القسم الثاني: الأسئلة المقالية - ص 74 (مثال 2)، ص 75 (مثال 3)</span></h2>
+<p class="text-gray-600 mb-3"><span data-ar="اكتب حلّك كاملاً: النقاط الحرجة، تحليل الإشارات، ثم مجموعة الحل بالترميز الصحيح" data-en="Write your full solution: critical points, sign analysis, then the solution set in correct notation">اكتب حلّك كاملاً: النقاط الحرجة، تحليل الإشارات، ثم مجموعة الحل بالترميز الصحيح</span></p>
+<p class="text-sm text-green-700 font-semibold">💾 <span data-ar="يُحفظ حلّك تلقائياً" data-en="Auto-saves while typing">يُحفظ حلّك تلقائياً</span> | 📊 <span data-ar="كل مسألة 10 درجات (المجموع 100)" data-en="10 points each (Total 100)">كل مسألة 10 درجات (المجموع 100)</span></p>
+</div>
+<div class="mt-5 flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+<span>📅 <span data-ar="التاريخ:" data-en="Date:">التاريخ:</span> <input type="text" id="examDate" class="border-b-2 border-blue-300 bg-transparent w-32 text-center"></span>
+<span>😊 <span data-ar="الاسم:" data-en="Name:">الاسم:</span> <input type="text" id="studentName" class="border-b-2 border-blue-300 bg-transparent w-44 text-center" placeholder="اكتب اسمك"></span>
+<span>🏫 <span data-ar="الشعبة:" data-en="Class:">الشعبة:</span> <input type="text" id="studentClass" class="border-b-2 border-blue-300 bg-transparent w-28 text-center" placeholder="الشعبة"></span>
+</div>
+<div class="mt-5 bg-blue-50 border-2 border-blue-300 rounded-xl p-4 text-sm">
+<p class="font-bold text-blue-800 mb-2 text-center">📋 <span data-ar="معيار التصحيح (لكل مسألة 10 درجات):" data-en="Grading Rubric (10 points per problem):">معيار التصحيح (لكل مسألة 10 درجات):</span></p>
+<div class="text-center">
+<span class="rubric-chip">3 <span data-ar="درجات: إيجاد النقاط الحرجة (الجذور)" data-en="pts: critical points (roots)">درجات: إيجاد النقاط الحرجة (الجذور)</span></span>
+<span class="rubric-chip">3 <span data-ar="درجات: تحليل إشارات الفترات" data-en="pts: sign analysis of intervals">درجات: تحليل إشارات الفترات</span></span>
+<span class="rubric-chip">2 <span data-ar="درجة: اختيار الفترة المطابقة للمتباينة" data-en="pts: choosing matching interval">درجة: اختيار الفترة المطابقة للمتباينة</span></span>
+<span class="rubric-chip">2 <span data-ar="درجة: الترميز (دوائر مفتوحة/مغلقة)" data-en="pts: notation (open/closed)">درجة: الترميز (دوائر مفتوحة/مغلقة)</span></span>
+</div>
+</div>
+<div id="method-holder" class="mt-4"></div>
+</header>
+
+<main class="max-w-4xl mx-auto" id="exam-content"></main>
+
+<div id="results-panel" class="max-w-4xl mx-auto mt-8 bg-white p-8 rounded-3xl shadow-2xl border-4 border-blue-500 hidden no-print">
+<h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">🏆 <span data-ar="بطاقة النتيجة" data-en="Result Card">بطاقة النتيجة</span> 🏆</h2>
+<div class="grid md:grid-cols-3 gap-4 mb-6">
+<div class="bg-blue-50 p-4 rounded-xl text-center"><p>😊 <span data-ar="الاسم" data-en="Name">الاسم</span></p><p id="res-name" class="font-bold text-xl text-blue-700">-</p></div>
+<div class="bg-indigo-50 p-4 rounded-xl text-center"><p>📅 <span data-ar="التاريخ" data-en="Date">التاريخ</span></p><p id="res-date" class="font-bold text-xl text-indigo-700">-</p></div>
+<div class="bg-blue-50 p-4 rounded-xl text-center"><p>🌟 <span data-ar="المجموع" data-en="Total">المجموع</span></p><p id="res-total" class="font-bold text-3xl text-blue-700">0 / 100</p></div>
+</div>
+<div class="text-center mb-6">
+<span id="success-badge" class="inline-block px-4 py-1 rounded-full font-bold bg-blue-100 text-blue-800">-</span>
+<p id="success-percent" class="text-4xl font-bold text-blue-700 mt-2">0%</p>
+</div>
+<div class="bg-gray-50 p-5 rounded-xl mb-6">
+<h3 class="font-bold text-lg mb-3 text-gray-800">📊 <span data-ar="درجات المسائل:" data-en="Problem Scores:">درجات المسائل:</span></h3>
+<div class="space-y-2" id="per-problem-scores"></div>
+</div>
+<div class="text-center">
+<button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-blue-700 to-indigo-600 text-white text-lg px-8 py-3 rounded-2xl font-bold shadow-xl transition">📧 <span data-ar="أرسل الإجابات والدرجات للمعلم" data-en="Send Answers & Scores to Teacher">أرسل الإجابات والدرجات للمعلم</span></button>
+<p id="emailStatus" class="text-sm mt-2 font-medium"></p>
+</div>
+</div>
+
+<footer class="max-w-4xl mx-auto mt-10 mb-8 text-center text-gray-500 text-sm no-print">
+© Written Exam: Quadratic Inequalities - Grade 12 General | Mr. Mohammed Hesham 📝
+</footer>
+
+<script>
+const PUBLIC_KEY = "Rb3Lq8tXaFmc5YHUH";
+const SERVICE_ID = "service_w15m64i";
+const TEMPLATE_ID = "template_5b0u2tq";
+const TARGET_EMAIL = "mohammedhesham872@gmail.com";
+emailjs.init(PUBLIC_KEY);
+
+const STORAGE_KEY = 'written_quadratic_inequalities_g12_v1';
+const TOTAL_TIME = 3600;
+
+let currentLang = 'ar';
+let timeRemaining = TOTAL_TIME;
+let timerInterval = null;
+let modelsVisible = false;
+let studentAnswers = {};
+let studentScores = {};
+let studentChecks = {};
+let saveIndicatorTimeout = null;
+
+// ==================== SVG GENERATOR: Inequality Graphs ====================
+function ineqGraph(opts) {
+  const t = opts.title, r1 = opts.r1, r2 = opts.r2, open = opts.open, region = opts.region, down = !!opts.down, note = opts.note;
+  const x1 = 157, x2 = 283, ay = 140, nl = 240;
+  const curve = down ? 'M 80 220 Q 220 20 360 220' : 'M 80 60 Q 220 260 360 60';
+  let shade = '';
+  if (!down && region === 'between') shade = '<path d="M 157 140 Q 220 180 283 140 Z" fill="#16a34a" opacity="0.3"/>';
+  if (!down && region === 'outside') shade = '<path d="M 80 60 Q 110 95 157 140 L 80 140 Z" fill="#16a34a" opacity="0.3"/><path d="M 283 140 Q 330 95 360 60 L 360 140 Z" fill="#16a34a" opacity="0.3"/>';
+  if (down && region === 'outside') shade = '<path d="M 80 220 Q 110 185 157 140 L 80 140 Z" fill="#16a34a" opacity="0.3"/><path d="M 283 140 Q 330 185 360 220 L 360 140 Z" fill="#16a34a" opacity="0.3"/>';
+  if (down && region === 'between') shade = '<path d="M 157 140 Q 220 100 283 140 Z" fill="#16a34a" opacity="0.3"/>';
+  const dot = (x) => open
+    ? '<circle cx="' + x + '" cy="' + nl + '" r="7" fill="white" stroke="#dc2626" stroke-width="3"/>'
+    : '<circle cx="' + x + '" cy="' + nl + '" r="7" fill="#dc2626"/>';
+  let nlShade = '';
+  if (region === 'between') nlShade = '<rect x="' + x1 + '" y="' + (nl - 6) + '" width="' + (x2 - x1) + '" height="12" fill="#16a34a" opacity="0.5"/>';
+  else nlShade = '<rect x="60" y="' + (nl - 6) + '" width="' + (x1 - 60) + '" height="12" fill="#16a34a" opacity="0.5"/><rect x="' + x2 + '" y="' + (nl - 6) + '" width="' + (420 - x2) + '" height="12" fill="#16a34a" opacity="0.5"/>'
+    + '<path d="M 60 ' + nl + ' L 74 ' + (nl - 8) + ' L 74 ' + (nl + 8) + ' Z" fill="#16a34a"/><path d="M 420 ' + nl + ' L 406 ' + (nl - 8) + ' L 406 ' + (nl + 8) + ' Z" fill="#16a34a"/>';
+  return '<svg class="svg-graph" width="480" height="320" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg">'
+    + '<rect x="5" y="5" width="470" height="310" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>'
+    + '<text x="240" y="26" text-anchor="middle" font-size="13" fill="#1e40af" font-weight="bold">' + t + '</text>'
+    + '<line x1="60" y1="' + ay + '" x2="420" y2="' + ay + '" stroke="#374151" stroke-width="2"/>'
+    + '<line x1="220" y1="270" x2="220" y2="45" stroke="#374151" stroke-width="1.5"/>'
+    + shade + '<path d="' + curve + '" fill="none" stroke="#2563eb" stroke-width="3"/>'
+    + '<circle cx="' + x1 + '" cy="' + ay + '" r="4" fill="#dc2626"/><circle cx="' + x2 + '" cy="' + ay + '" r="4" fill="#dc2626"/>'
+    + '<text x="' + x1 + '" y="' + (ay - 8) + '" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="bold">' + r1 + '</text>'
+    + '<text x="' + x2 + '" y="' + (ay - 8) + '" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="bold">' + r2 + '</text>'
+    + '<text x="430" y="' + (ay + 4) + '" font-size="11" fill="#374151" font-weight="bold">x</text>'
+    + '<text x="60" y="' + (nl - 16) + '" font-size="10" fill="#166534" font-weight="bold">خط الأعداد (منطقة الحل بالأخضر):</text>'
+    + '<line x1="60" y1="' + nl + '" x2="420" y2="' + nl + '" stroke="#374151" stroke-width="2"/>'
+    + nlShade + dot(x1) + dot(x2)
+    + '<text x="' + x1 + '" y="' + (nl + 26) + '" text-anchor="middle" font-size="11" fill="#991b1b" font-weight="bold">' + r1 + '</text>'
+    + '<text x="' + x2 + '" y="' + (nl + 26) + '" text-anchor="middle" font-size="11" fill="#991b1b" font-weight="bold">' + r2 + '</text>'
+    + '<text x="240" y="' + (nl + 44) + '" text-anchor="middle" font-size="10" fill="#374151">' + (open ? 'دوائر مفتوحة: الحدود غير مشمولة ( &lt; أو &gt; )' : 'دوائر مغلقة: الحدود مشمولة ( ≤ أو ≥ )') + '</text>'
+    + '<rect x="60" y="288" width="360" height="22" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>'
+    + '<text x="240" y="303" text-anchor="middle" font-size="11" fill="#166534" font-family="' + "'Amiri'" + ',serif" font-weight="bold">' + note + '</text>'
+    + '</svg>';
+}
+
+const svgGraphs = {
+method: '<svg class="svg-graph" width="480" height="250" viewBox="0 0 480 250" xmlns="http://www.w3.org/2000/svg">'
+  + '<rect x="5" y="5" width="470" height="240" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>'
+  + '<text x="240" y="26" text-anchor="middle" font-size="14" fill="#92400e" font-weight="bold">📋 طريقة حل المتباينات التربيعية (4 خطوات)</text>'
+  + '<rect x="25" y="42" width="205" height="58" rx="8" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>'
+  + '<text x="127" y="62" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">1) صفّر أحد الطرفين وحلّل</text>'
+  + '<text x="127" y="80" text-anchor="middle" font-size="9" fill="#92400e" font-family="' + "'Amiri'" + ',serif">(x - r1)(x - r2) &lt; 0</text>'
+  + '<text x="127" y="94" text-anchor="middle" font-size="9" fill="#92400e">أو استخدم القانون العام</text>'
+  + '<path d="M 235 71 L 250 71" stroke="#92400e" stroke-width="2" marker-end="url(#am)"/>'
+  + '<rect x="252" y="42" width="205" height="58" rx="8" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>'
+  + '<text x="355" y="62" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">2) النقاط الحرجة = الجذور</text>'
+  + '<text x="355" y="80" text-anchor="middle" font-size="9" fill="#92400e" font-family="' + "'Amiri'" + ',serif">r1 , r2</text>'
+  + '<text x="355" y="94" text-anchor="middle" font-size="9" fill="#92400e">تقسّم خط الأعداد لفترات</text>'
+  + '<path d="M 355 105 L 355 120" stroke="#92400e" stroke-width="2" marker-end="url(#am2)"/>'
+  + '<rect x="252" y="122" width="205" height="58" rx="8" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>'
+  + '<text x="355" y="142" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">3) اختبر إشارة كل فترة</text>'
+  + '<text x="355" y="160" text-anchor="middle" font-size="9" fill="#92400e">عوّض نقطة اختبار، أو:</text>'
+  + '<text x="355" y="174" text-anchor="middle" font-size="9" fill="#92400e">a&gt;0: موجب خارج الجذور</text>'
+  + '<path d="M 250 151 L 235 151" stroke="#92400e" stroke-width="2" marker-end="url(#am3)"/>'
+  + '<rect x="25" y="122" width="205" height="58" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>'
+  + '<text x="127" y="142" text-anchor="middle" font-size="10" fill="#166534" font-weight="bold">4) اكتب مجموعة الحل</text>'
+  + '<text x="127" y="160" text-anchor="middle" font-size="9" fill="#166534">الفترات المطابقة لإشارة المتباينة</text>'
+  + '<text x="127" y="174" text-anchor="middle" font-size="9" fill="#166534">بترميز فترات ودوائر صحيحة</text>'
+  + '<rect x="25" y="192" width="432" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>'
+  + '<text x="240" y="210" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">💡 قاعدة سريعة (a &gt; 0): «&lt; 0» بين الجذور | «&gt; 0» خارج الجذور</text>'
+  + '<text x="240" y="226" text-anchor="middle" font-size="9" fill="#92400e">وإذا a &lt; 0: اضرب في -1 أولاً واعكس إشارة المتباينة!</text>'
+  + '<defs><marker id="am" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#92400e"/></marker>'
+  + '<marker id="am2" markerWidth="8" markerHeight="8" refX="3" refY="7" orient="auto"><path d="M0,0 L6,0 L3,7 z" fill="#92400e"/></marker>'
+  + '<marker id="am3" markerWidth="8" markerHeight="8" refX="1" refY="3" orient="auto"><path d="M8,0 L8,6 L1,3 z" fill="#92400e"/></marker></defs></svg>',
+
+g90: ineqGraph({ title: 'س90: x² + 2x - 8 < 0 (بين الجذور، دوائر مفتوحة)', r1: '-4', r2: '2', open: true, region: 'between', down: false, note: 'Solution: (-4, 2)  أي  {x | -4 < x < 2}' }),
+g91: ineqGraph({ title: 'س91: x² + 5x - 6 > 0 (خارج الجذور، دوائر مفتوحة)', r1: '-6', r2: '1', open: true, region: 'outside', down: false, note: 'Solution: (-∞, -6) ∪ (1, +∞)' }),
+g92: ineqGraph({ title: 'س92: -x² + 3x + 10 ≤ 0 (قطع مفتوح لأسفل)', r1: '-2', r2: '5', open: false, region: 'outside', down: true, note: 'Solution: (-∞, -2] ∪ [5, +∞)' }),
+g93: ineqGraph({ title: 'س93: 2x² + 4x - 5 ≥ 0 (جذور غير نسبية)', r1: '(-2-√14)/2', r2: '(-2+√14)/2', open: false, region: 'outside', down: false, note: 'Solution: (-∞, -1-√14/2] ∪ [-1+√14/2, +∞)' }),
+g94: ineqGraph({ title: 'س94: x² - 6x + 2 > 0 (جذور غير نسبية)', r1: '3-√7', r2: '3+√7', open: true, region: 'outside', down: false, note: 'Solution: (-∞, 3-√7) ∪ (3+√7, +∞)' }),
+g7: ineqGraph({ title: 'متباينة مشابهة: -x² + 4x + 5 > 0 (بين الجذور)', r1: '-1', r2: '5', open: true, region: 'between', down: true, note: 'Solution: (-1, 5)' }),
+g8: ineqGraph({ title: 'متباينة مشابهة: x² - 9 ≥ 0 (خارج الجذور، مغلقة)', r1: '-3', r2: '3', open: false, region: 'outside', down: false, note: 'Solution: (-∞, -3] ∪ [3, +∞)' }),
+g9: ineqGraph({ title: 'متباينة مشابهة: 2x² - 3x - 2 ≤ 0 (بين الجذور، مغلقة)', r1: '-1/2', r2: '2', open: false, region: 'between', down: false, note: 'Solution: [-1/2, 2]' }),
+
+sign: '<svg class="svg-graph" width="480" height="260" viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg">'
+  + '<rect x="5" y="5" width="470" height="250" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>'
+  + '<text x="240" y="26" text-anchor="middle" font-size="13" fill="#065f46" font-weight="bold">📊 جدول الإشارات (نقاط الاختبار) - مثال: x² - 4x - 5 &lt; 0</text>'
+  + '<g font-size="10" fill="#065f46">'
+  + '<rect x="25" y="42" width="105" height="32" fill="#d1fae5" stroke="#10b981" stroke-width="2"/><text x="77" y="62" text-anchor="middle" font-weight="bold">الفترة</text>'
+  + '<rect x="130" y="42" width="105" height="32" fill="#d1fae5" stroke="#10b981" stroke-width="2"/><text x="182" y="62" text-anchor="middle" font-weight="bold">نقطة اختبار</text>'
+  + '<rect x="235" y="42" width="120" height="32" fill="#d1fae5" stroke="#10b981" stroke-width="2"/><text x="295" y="62" text-anchor="middle" font-weight="bold">قيمة المقدار</text>'
+  + '<rect x="355" y="42" width="100" height="32" fill="#d1fae5" stroke="#10b981" stroke-width="2"/><text x="405" y="62" text-anchor="middle" font-weight="bold">الإشارة</text>'
+  + '<rect x="25" y="74" width="105" height="34" fill="#ecfdf5" stroke="#10b981" stroke-width="1"/><text x="77" y="95" text-anchor="middle">(-∞, -1)</text>'
+  + '<rect x="130" y="74" width="105" height="34" fill="#ecfdf5" stroke="#10b981" stroke-width="1"/><text x="182" y="95" text-anchor="middle">x = -2</text>'
+  + '<rect x="235" y="74" width="120" height="34" fill="#ecfdf5" stroke="#10b981" stroke-width="1"/><text x="295" y="95" text-anchor="middle">4+8-5 = 7</text>'
+  + '<rect x="355" y="74" width="100" height="34" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/><text x="405" y="95" text-anchor="middle" font-weight="bold">موجب +</text>'
+  + '<rect x="25" y="108" width="105" height="34" fill="#ecfdf5" stroke="#10b981" stroke-width="1"/><text x="77" y="129" text-anchor="middle">(-1, 5)</text>'
+  + '<rect x="130" y="108" width="105" height="34" fill="#ecfdf5" stroke="#10b981" stroke-width="1"/><text x="182" y="129" text-anchor="middle">x = 0</text>'
+  + '<rect x="235" y="108" width="120" height="34" fill="#ecfdf5" stroke="#10b981" stroke-width="1"/><text x="295" y="129" text-anchor="middle">0-0-5 = -5</text>'
+  + '<rect x="355" y="108" width="100" height="34" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="405" y="129" text-anchor="middle" font-weight="bold">سالب - ✓</text>'
+  + '<rect x="25" y="142" width="105" height="34" fill="#ecfdf5" stroke="#10b981" stroke-width="1"/><text x="77" y="163" text-anchor="middle">(5, +∞)</text>'
+  + '<rect x="130" y="142" width="105" height="34" fill="#ecfdf5" stroke="#10b981" stroke-width="1"/><text x="182" y="163" text-anchor="middle">x = 6</text>'
+  + '<rect x="235" y="142" width="120" height="34" fill="#ecfdf5" stroke="#10b981" stroke-width="1"/><text x="295" y="163" text-anchor="middle">36-24-5 = 7</text>'
+  + '<rect x="355" y="142" width="100" height="34" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/><text x="405" y="163" text-anchor="middle" font-weight="bold">موجب +</text>'
+  + '</g>'
+  + '<rect x="25" y="188" width="430" height="52" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>'
+  + '<text x="240" y="208" text-anchor="middle" font-size="11" fill="#92400e" font-weight="bold">المطلوب &lt; 0 ⇒ نختار الفترة السالبة: (-1, 5)</text>'
+  + '<text x="240" y="228" text-anchor="middle" font-size="10" fill="#92400e">الدوائر مفتوحة لأن المتباينة صارمة (لا تشمل الطرفين)</text>'
+  + '</svg>',
+
+special: '<svg class="svg-graph" width="480" height="280" viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg">'
+  + '<rect x="5" y="5" width="470" height="270" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>'
+  + '<text x="240" y="26" text-anchor="middle" font-size="13" fill="#5b21b6" font-weight="bold">⭐ حالتان خاصتان</text>'
+  + '<rect x="20" y="40" width="215" height="150" rx="8" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2"/>'
+  + '<text x="127" y="60" text-anchor="middle" font-size="10" fill="#5b21b6" font-weight="bold">مميز = 0 (مربع كامل)</text>'
+  + '<line x1="40" y1="150" x2="215" y2="150" stroke="#374151" stroke-width="2"/>'
+  + '<path d="M 55 90 Q 127 210 200 90" fill="none" stroke="#7c3aed" stroke-width="2.5" transform="translate(0,-8)"/>'
+  + '<circle cx="127" cy="150" r="5" fill="#dc2626"/>'
+  + '<text x="127" y="170" text-anchor="middle" font-size="9" fill="#5b21b6" font-family="' + "'Amiri'" + ',serif">(x+2)² &gt; 0</text>'
+  + '<text x="127" y="184" text-anchor="middle" font-size="9" fill="#166534" font-weight="bold">الحل: كل الأعداد ما عدا -2</text>'
+  + '<rect x="245" y="40" width="215" height="150" rx="8" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2"/>'
+  + '<text x="352" y="60" text-anchor="middle" font-size="10" fill="#5b21b6" font-weight="bold">مميز &lt; 0 (لا جذور)</text>'
+  + '<line x1="265" y1="170" x2="440" y2="170" stroke="#374151" stroke-width="2"/>'
+  + '<path d="M 280 150 Q 352 60 425 150" fill="none" stroke="#7c3aed" stroke-width="2.5"/>'
+  + '<text x="352" y="188" text-anchor="middle" font-size="9" fill="#5b21b6" font-family="' + "'Amiri'" + ',serif">x² + x + 1 &gt; 0</text>'
+  + '<text x="352" y="202" text-anchor="middle" font-size="9" fill="#166534" font-weight="bold">الحل: جميع الأعداد الحقيقية</text>'
+  + '<rect x="20" y="200" width="440" height="60" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>'
+  + '<text x="240" y="220" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">💡 إذا لم يوجد جذران حقيقيان و a &gt; 0:</text>'
+  + '<text x="240" y="238" text-anchor="middle" font-size="10" fill="#92400e">المقدار موجب دائماً ⇒ «&gt; 0» حلها ℝ و «&lt; 0» حلها ∅</text>'
+  + '<text x="240" y="254" text-anchor="middle" font-size="9" fill="#92400e">وإذا كان مربعاً كاملاً: انتبه لاستثناء نقطة التماس عند &gt; أو &lt;</text>'
+  + '</svg>'
+};
+
+// ==================== WRITTEN QUESTIONS ====================
+const QUESTIONS = [
+{ section: 1, svg: 'g90',
+  statement: { ar: 'حل المتباينة <span class="math-display">x² + 2x - 8 &lt; 0</span>', en: 'Solve the inequality <span class="math-display">x² + 2x - 8 &lt; 0</span>' },
+  steps: [
+    { ar: 'نحلل: x² + 2x - 8 = (x + 4)(x - 2)', en: 'Factor: x² + 2x - 8 = (x + 4)(x - 2)' },
+    { ar: 'النقاط الحرجة: x = -4 ، x = 2', en: 'Critical points: x = -4, x = 2' },
+    { ar: 'القطع مفتوح لأعلى (a=1&gt;0) والمطلوب &lt; 0 ⇒ الحل بين الجذور', en: 'Opens up (a=1&gt;0) and we need &lt; 0 ⇒ between the roots' },
+    { ar: 'اختبار: x=0 ⇒ -8 &lt; 0 ✓ (الفترة الوسطى سالبة)', en: 'Test: x=0 ⇒ -8 &lt; 0 ✓ (middle interval negative)' }
+  ],
+  final: { ar: 'مجموعة الحل: {x | -4 &lt; x &lt; 2} = (-4, 2)', en: 'Solution set: {x | -4 &lt; x &lt; 2} = (-4, 2)' },
+  check: { ar: 'دوائر مفتوحة لأن المتباينة صارمة (&lt;)', en: 'Open circles because strict inequality (&lt;)' } },
+{ section: 1, svg: 'g91',
+  statement: { ar: 'حل المتباينة <span class="math-display">x² + 5x - 6 &gt; 0</span>', en: 'Solve the inequality <span class="math-display">x² + 5x - 6 &gt; 0</span>' },
+  steps: [
+    { ar: 'نحلل: (x + 6)(x - 1) &gt; 0', en: 'Factor: (x + 6)(x - 1) &gt; 0' },
+    { ar: 'النقاط الحرجة: x = -6 ، x = 1', en: 'Critical points: x = -6, x = 1' },
+    { ar: 'القطع مفتوح لأعلى والمطلوب &gt; 0 ⇒ الحل خارج الجذور', en: 'Opens up and we need &gt; 0 ⇒ outside the roots' },
+    { ar: 'اختبار: x=0 ⇒ -6 &gt; 0 ✗ إذن الفترة الوسطى مرفوضة', en: 'Test: x=0 ⇒ -6 &gt; 0 ✗ so middle interval rejected' }
+  ],
+  final: { ar: 'مجموعة الحل: {x | x &lt; -6 أو x &gt; 1} = (-∞, -6) ∪ (1, ∞)', en: 'Solution set: {x | x &lt; -6 or x &gt; 1} = (-∞, -6) ∪ (1, ∞)' },
+  check: { ar: 'اختبار x=-7: 49-35-6=8&gt;0 ✓ واختبار x=2: 4+10-6=8&gt;0 ✓', en: 'Test x=-7: 8&gt;0 ✓ and x=2: 8&gt;0 ✓' } },
+{ section: 1, svg: 'g92',
+  statement: { ar: 'حل المتباينة <span class="math-display">-x² + 3x + 10 ≤ 0</span>', en: 'Solve the inequality <span class="math-display">-x² + 3x + 10 ≤ 0</span>' },
+  steps: [
+    { ar: 'نضرب في -1 ونعكس الإشارة: x² - 3x - 10 ≥ 0', en: 'Multiply by -1 and flip: x² - 3x - 10 ≥ 0' },
+    { ar: 'نحلل: (x - 5)(x + 2) ≥ 0', en: 'Factor: (x - 5)(x + 2) ≥ 0' },
+    { ar: 'النقاط الحرجة: x = -2 ، x = 5', en: 'Critical points: x = -2, x = 5' },
+    { ar: 'المطلوب ≥ 0 ⇒ الحل خارج الجذور (شاملاً الطرفين)', en: 'Need ≥ 0 ⇒ outside the roots (including endpoints)' }
+  ],
+  final: { ar: 'مجموعة الحل: {x | x ≤ -2 أو x ≥ 5} = (-∞, -2] ∪ [5, ∞)', en: 'Solution set: {x | x ≤ -2 or x ≥ 5} = (-∞, -2] ∪ [5, ∞)' },
+  check: { ar: 'دوائر مغلقة لأن الإشارة تشمل المساواة (≤)', en: 'Closed circles because inequality includes equality (≤)' } },
+{ section: 1, svg: 'g93',
+  statement: { ar: 'حل المتباينة <span class="math-display">2x² + 4x - 5 ≥ 0</span>', en: 'Solve the inequality <span class="math-display">2x² + 4x - 5 ≥ 0</span>' },
+  steps: [
+    { ar: 'لا يمكن التحليل بسهولة ⇒ القانون العام: x = (-4 ± √56)/4', en: 'Not factorable ⇒ quadratic formula: x = (-4 ± √56)/4' },
+    { ar: '√56 = 2√14 ⇒ النقاط الحرجة: x = (-2 ± √14)/2 ≈ -2.87 ، 0.87', en: '√56 = 2√14 ⇒ critical points: x = (-2 ± √14)/2 ≈ -2.87, 0.87' },
+    { ar: 'القطع مفتوح لأعلى (a=2&gt;0) والمطلوب ≥ 0 ⇒ خارج الجذور', en: 'Opens up (a=2&gt;0), need ≥ 0 ⇒ outside the roots' }
+  ],
+  final: { ar: 'مجموعة الحل: x ≤ (-2-√14)/2 أو x ≥ (-2+√14)/2', en: 'Solution: x ≤ (-2-√14)/2 or x ≥ (-2+√14)/2' },
+  check: { ar: 'تقريباً: x ≤ -2.87 أو x ≥ 0.87 (دوائر مغلقة)', en: 'Approximately: x ≤ -2.87 or x ≥ 0.87 (closed circles)' } },
+{ section: 1, svg: 'g94',
+  statement: { ar: 'حل المتباينة <span class="math-display">x² - 6x + 2 &gt; 0</span>', en: 'Solve the inequality <span class="math-display">x² - 6x + 2 &gt; 0</span>' },
+  steps: [
+    { ar: 'القانون العام: x = (6 ± √28)/2 = 3 ± √7', en: 'Quadratic formula: x = (6 ± √28)/2 = 3 ± √7' },
+    { ar: 'النقاط الحرجة: x ≈ 0.35 ، x ≈ 5.65', en: 'Critical points: x ≈ 0.35, x ≈ 5.65' },
+    { ar: 'القطع مفتوح لأعلى والمطلوب &gt; 0 ⇒ خارج الجذور', en: 'Opens up, need &gt; 0 ⇒ outside the roots' }
+  ],
+  final: { ar: 'مجموعة الحل: x &lt; 3 - √7 أو x &gt; 3 + √7', en: 'Solution set: x &lt; 3 - √7 or x &gt; 3 + √7' },
+  check: { ar: 'اختبار x=0: 2 &gt; 0 ✓ إذن الفترة اليسرى ضمن الحل', en: 'Test x=0: 2 &gt; 0 ✓ so left interval is in the solution' } },
+{ section: 2, svg: 'sign',
+  statement: { ar: 'حل المتباينة <span class="math-display">x² - 4x - 5 &lt; 0</span>', en: 'Solve the inequality <span class="math-display">x² - 4x - 5 &lt; 0</span>' },
+  steps: [
+    { ar: 'نحلل: (x - 5)(x + 1) &lt; 0', en: 'Factor: (x - 5)(x + 1) &lt; 0' },
+    { ar: 'النقاط الحرجة: x = -1 ، x = 5', en: 'Critical points: x = -1, x = 5' },
+    { ar: 'جدول الإشارات: (+) قبل -1 ، (-) بين -1 و5 ، (+) بعد 5', en: 'Sign chart: (+) before -1, (-) between, (+) after 5' },
+    { ar: 'المطلوب &lt; 0 ⇒ الفترة الوسطى', en: 'Need &lt; 0 ⇒ middle interval' }
+  ],
+  final: { ar: 'مجموعة الحل: (-1, 5)', en: 'Solution set: (-1, 5)' },
+  check: { ar: 'اختبار x=0: -5 &lt; 0 ✓', en: 'Test x=0: -5 &lt; 0 ✓' } },
+{ section: 2, svg: 'g7',
+  statement: { ar: 'حل المتباينة <span class="math-display">-x² + 4x + 5 &gt; 0</span>', en: 'Solve the inequality <span class="math-display">-x² + 4x + 5 &gt; 0</span>' },
+  steps: [
+    { ar: 'نضرب في -1 ونعكس: x² - 4x - 5 &lt; 0', en: 'Multiply by -1 and flip: x² - 4x - 5 &lt; 0' },
+    { ar: 'نحلل: (x - 5)(x + 1) &lt; 0', en: 'Factor: (x - 5)(x + 1) &lt; 0' },
+    { ar: 'النقاط الحرجة: -1 ، 5 والمطلوب &lt; 0 ⇒ بين الجذور', en: 'Critical points: -1, 5; need &lt; 0 ⇒ between' }
+  ],
+  final: { ar: 'مجموعة الحل: (-1, 5)', en: 'Solution set: (-1, 5)' },
+  check: { ar: 'اختبار x=0: 0+0+5=5 &gt; 0 ✓ في المتباينة الأصلية', en: 'Test x=0 in original: 5 &gt; 0 ✓' } },
+{ section: 2, svg: 'g8',
+  statement: { ar: 'حل المتباينة <span class="math-display">x² - 9 ≥ 0</span>', en: 'Solve the inequality <span class="math-display">x² - 9 ≥ 0</span>' },
+  steps: [
+    { ar: 'فرق مربعين: (x - 3)(x + 3) ≥ 0', en: 'Difference of squares: (x - 3)(x + 3) ≥ 0' },
+    { ar: 'النقاط الحرجة: -3 ، 3', en: 'Critical points: -3, 3' },
+    { ar: 'المطلوب ≥ 0 ⇒ خارج الجذور شاملاً الطرفين', en: 'Need ≥ 0 ⇒ outside, including endpoints' }
+  ],
+  final: { ar: 'مجموعة الحل: (-∞, -3] ∪ [3, ∞)', en: 'Solution set: (-∞, -3] ∪ [3, ∞)' },
+  check: { ar: 'اختبار x=0: -9 ≥ 0 ✗ إذن الوسط مرفوض ✓', en: 'Test x=0: -9 ≥ 0 ✗ middle rejected ✓' } },
+{ section: 2, svg: 'g9',
+  statement: { ar: 'حل المتباينة <span class="math-display">2x² - 3x - 2 ≤ 0</span>', en: 'Solve the inequality <span class="math-display">2x² - 3x - 2 ≤ 0</span>' },
+  steps: [
+    { ar: 'نحلل: (2x + 1)(x - 2) ≤ 0', en: 'Factor: (2x + 1)(x - 2) ≤ 0' },
+    { ar: 'النقاط الحرجة: x = -1/2 ، x = 2', en: 'Critical points: x = -1/2, x = 2' },
+    { ar: 'القطع مفتوح لأعلى والمطلوب ≤ 0 ⇒ بين الجذور شاملاً', en: 'Opens up, need ≤ 0 ⇒ between, inclusive' }
+  ],
+  final: { ar: 'مجموعة الحل: [-1/2, 2]', en: 'Solution set: [-1/2, 2]' },
+  check: { ar: 'اختبار x=0: -2 ≤ 0 ✓', en: 'Test x=0: -2 ≤ 0 ✓' } },
+{ section: 2, svg: 'special',
+  statement: { ar: 'حل المتباينة <span class="math-display">x² + x + 1 &gt; 0</span> وفسّر نتيجتك', en: 'Solve <span class="math-display">x² + x + 1 &gt; 0</span> and interpret your result' },
+  steps: [
+    { ar: 'المميز: Δ = 1 - 4 = -3 &lt; 0 ⇒ لا جذور حقيقية', en: 'Discriminant: Δ = 1 - 4 = -3 &lt; 0 ⇒ no real roots' },
+    { ar: 'a = 1 &gt; 0 ⇒ القطع فوق المحور تماماً (موجب دائماً)', en: 'a = 1 &gt; 0 ⇒ parabola entirely above x-axis (always positive)' },
+    { ar: 'إذن المتباينة محققة لكل قيمة حقيقية', en: 'Therefore the inequality holds for every real value' }
+  ],
+  final: { ar: 'مجموعة الحل: جميع الأعداد الحقيقية ℝ = (-∞, ∞)', en: 'Solution set: all real numbers ℝ = (-∞, ∞)' },
+  check: { ar: 'اختبار x=0: 1 &gt; 0 ✓ واختبار x=-5: 21 &gt; 0 ✓', en: 'Test x=0: 1&gt;0 ✓ and x=-5: 21&gt;0 ✓' } }
+];
+
+const CHECKLIST = [
+  { ar: 'وجدت النقاط الحرجة (الجذور)', en: 'Found critical points (roots)' },
+  { ar: 'حللت إشارة كل فترة', en: 'Analyzed sign of each interval' },
+  { ar: 'اخترت الفترات المطابقة للمتباينة', en: 'Chose intervals matching inequality' },
+  { ar: 'كتبت الترميز الصحيح (فتح/إغلاق)', en: 'Used correct notation (open/closed)' }
+];
+
+// ==================== STATE & STORAGE ====================
+function showSaveIndicator() {
+  const ind = document.getElementById('saveIndicator');
+  ind.classList.add('show');
+  if (saveIndicatorTimeout) clearTimeout(saveIndicatorTimeout);
+  saveIndicatorTimeout = setTimeout(() => ind.classList.remove('show'), 1200);
+}
+function saveState(show = true) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      lang: currentLang,
+      studentName: document.getElementById('studentName').value,
+      studentClass: document.getElementById('studentClass').value,
+      examDate: document.getElementById('examDate').value,
+      answers: studentAnswers, scores: studentScores, checks: studentChecks,
+      timeRemaining: timeRemaining, savedAt: Date.now()
+    }));
+    if (show) showSaveIndicator();
+  } catch (e) { console.error(e); }
+}
+function loadState() { try { const s = localStorage.getItem(STORAGE_KEY); return s ? JSON.parse(s) : null; } catch (e) { return null; } }
+function clearProgress() {
+  if (confirm(currentLang === 'ar' ? '⚠️ مسح كل الحلول والدرجات المحفوظة؟' : '⚠️ Clear all saved solutions and scores?')) { localStorage.removeItem(STORAGE_KEY); location.reload(); }
+}
+
+// ==================== RENDER ====================
+function renderExam() {
+  const c = document.getElementById('exam-content');
+  let html = '', sec = 0;
+  QUESTIONS.forEach((q, i) => {
+    if (q.section !== sec) {
+      sec = q.section;
+      html += '<div class="section-head">' + (sec === 1
+        ? (currentLang === 'ar' ? '📘 القسم الأول: مسائل الكتاب (90 - 94) — 10 درجات لكل مسألة' : '📘 Part One: Textbook Problems (90-94) — 10 pts each')
+        : (currentLang === 'ar' ? '📗 القسم الثاني: مسائل مشابهة وحالات خاصة — 10 درجات لكل مسألة' : '📗 Part Two: Similar Problems & Special Cases — 10 pts each')) + '</div>';
+    }
+    html += '<div class="q-card" id="card-' + i + '">';
+    html += '<div class="flex flex-wrap items-center justify-between gap-2 mb-3"><span class="bg-blue-700 text-white font-extrabold rounded-full w-9 h-9 flex items-center justify-center">' + (i + 1) + '</span><span class="text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 rounded-full px-3 py-1">10 ' + (currentLang === 'ar' ? 'درجات' : 'pts') + '</span></div>';
+    html += '<div class="q-statement arabic-math">' + q.statement[currentLang] + '</div>';
+    if (q.svg) html += '<div class="graph-container">' + svgGraphs[q.svg] + '</div>';
+    html += '<p class="text-sm font-bold text-blue-800 mt-3 mb-1">✍️ ' + (currentLang === 'ar' ? 'الحل:' : 'Solution:') + '</p>';
+    html += '<textarea class="answer-area" id="sol-' + i + '" placeholder="' + (currentLang === 'ar' ? 'اكتب حلّك: (1) النقاط الحرجة ... (2) تحليل الإشارات ... (3) مجموعة الحل بالترميز الصحيح' : 'Write: (1) critical points ... (2) sign analysis ... (3) solution set in correct notation') + '"></textarea>';
+    html += '<div class="flex flex-wrap gap-2 mt-3 no-print">';
+    CHECKLIST.forEach((ch, j) => {
+      const ck = (studentChecks[i] && studentChecks[i][j]) ? 'checked' : '';
+      html += '<label class="check-item"><input type="checkbox" data-q="' + i + '" data-c="' + j + '" ' + ck + '> ' + ch[currentLang] + '</label>';
+    });
+    html += '</div>';
+    html += '<div class="flex flex-wrap items-center justify-between gap-3 mt-4 no-print">';
+    html += '<button onclick="toggleModel(' + i + ')" class="bg-green-600 hover:bg-green-700 text-white text-sm px-4 py-2 rounded-lg font-bold transition">🔑 ' + (currentLang === 'ar' ? 'الحل النموذجي' : 'Model solution') + '</button>';
+    html += '<label class="flex items-center gap-2 text-sm font-bold text-blue-800">' + (currentLang === 'ar' ? 'الدرجة الممنوحة:' : 'Score:') + ' <input type="number" min="0" max="10" step="0.5" class="score-input" id="score-' + i + '" data-q="' + i + '"> / 10</label>';
+    html += '</div>';
+    html += '<div class="model-box" id="model-' + i + '" style="display:none">';
+    html += '<p class="font-extrabold text-green-800 mb-2">' + (currentLang === 'ar' ? '✅ الحل النموذجي:' : '✅ Model solution:') + '</p>';
+    q.steps.forEach((s, k) => { html += '<div class="model-step"><span class="step-no">' + (k + 1) + '</span>' + s[currentLang] + '</div>'; });
+    html += '<div class="final-answer">' + q.final[currentLang] + '</div>';
+    html += '<p class="text-xs text-green-700 mt-2 font-bold">' + q.check[currentLang] + '</p></div></div>';
+  });
+  c.innerHTML = html;
+  QUESTIONS.forEach((q, i) => {
+    const ta = document.getElementById('sol-' + i);
+    if (ta && studentAnswers[i]) ta.value = studentAnswers[i];
+    const sc = document.getElementById('score-' + i);
+    if (sc && studentScores[i] !== undefined && studentScores[i] !== '') sc.value = studentScores[i];
+  });
+  attachListeners();
+}
+
+function attachListeners() {
+  const c = document.getElementById('exam-content');
+  c.addEventListener('input', (e) => {
+    if (e.target.classList.contains('answer-area')) { studentAnswers[e.target.id.replace('sol-', '')] = e.target.value; saveState(false); }
+    if (e.target.classList.contains('score-input')) { studentScores[e.target.dataset.q] = e.target.value; saveState(false); }
+  });
+  c.addEventListener('change', (e) => {
+    if (e.target.type === 'checkbox') {
+      const i = e.target.dataset.q, j = e.target.dataset.c;
+      if (!studentChecks[i]) studentChecks[i] = {};
+      studentChecks[i][j] = e.target.checked; saveState(true);
+    }
+    if (e.target.classList.contains('score-input') || e.target.classList.contains('answer-area')) saveState(true);
+  });
+}
+
+function toggleModel(i) { const m = document.getElementById('model-' + i); m.style.display = (m.style.display === 'none') ? 'block' : 'none'; }
+function toggleAllModels() { modelsVisible = !modelsVisible; QUESTIONS.forEach((q, i) => { document.getElementById('model-' + i).style.display = modelsVisible ? 'block' : 'none'; }); }
+
+// ==================== GRADING ====================
+function gradeExam() {
+  let total = 0; const rows = [];
+  QUESTIONS.forEach((q, i) => {
+    let v = parseFloat(studentScores[i]); if (isNaN(v)) v = 0;
+    v = Math.max(0, Math.min(10, v)); total += v;
+    rows.push({ i: i, score: v, hasWork: (studentAnswers[i] || '').trim().length > 0 });
+  });
+  document.getElementById('res-total').textContent = total + ' / 100';
+  document.getElementById('res-name').textContent = document.getElementById('studentName').value || (currentLang === 'ar' ? 'طالب' : 'Student');
+  document.getElementById('res-date').textContent = document.getElementById('examDate').value || new Date().toLocaleDateString();
+  document.getElementById('success-percent').textContent = total + '%';
+  const badge = document.getElementById('success-badge');
+  let cls, txt;
+  if (total >= 90) { cls = 'bg-green-100 text-green-800'; txt = currentLang === 'ar' ? '🌟 ممتاز جداً' : '🌟 Outstanding'; }
+  else if (total >= 75) { cls = 'bg-yellow-100 text-yellow-800'; txt = currentLang === 'ar' ? '👏 ممتاز' : '👏 Excellent'; }
+  else if (total >= 50) { cls = 'bg-blue-100 text-blue-800'; txt = currentLang === 'ar' ? '👍 جيد' : '👍 Good'; }
+  else { cls = 'bg-red-100 text-red-800'; txt = currentLang === 'ar' ? '💪 يحتاج تحسين' : '💪 Needs improvement'; }
+  badge.className = 'inline-block px-4 py-1 rounded-full font-bold ' + cls; badge.textContent = txt;
+  document.getElementById('per-problem-scores').innerHTML = rows.map(r =>
+    '<div class="flex justify-between items-center p-2 bg-white rounded-lg border border-gray-200"><span class="font-bold text-gray-700">'
+    + (currentLang === 'ar' ? 'المسألة' : 'Problem') + ' ' + (r.i + 1) + (r.hasWork ? '' : (currentLang === 'ar' ? ' ⚠️ بدون كتابة حل' : ' ⚠️ no written work'))
+    + '</span><span class="font-extrabold text-blue-700">' + r.score + ' / 10</span></div>').join('');
+  document.getElementById('results-panel').classList.remove('hidden');
+  document.getElementById('results-panel').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ==================== EMAIL ====================
+function sendResultsToEmail() {
+  const btn = document.getElementById('sendEmailBtn'); const status = document.getElementById('emailStatus');
+  btn.disabled = true; btn.textContent = currentLang === 'ar' ? '⏳ جاري الإرسال...' : '⏳ Sending...';
+  const name = document.getElementById('studentName').value || 'N/A';
+  const klass = document.getElementById('studentClass').value || 'N/A';
+  const date = document.getElementById('examDate').value || new Date().toLocaleDateString();
+  const total = document.getElementById('res-total').textContent;
+  let html = '<div style="font-family:Arial;direction:rtl"><h2>📝 امتحان كتابي: المتباينات التربيعية - رياضيات 12 عام</h2>'
+    + '<p><b>الاسم:</b> ' + name + ' | <b>الشعبة:</b> ' + klass + ' | <b>التاريخ:</b> ' + date + '</p><p><b>المجموع:</b> ' + total + '</p><hr>';
+  QUESTIONS.forEach((q, i) => {
+    const ans = (studentAnswers[i] || '(لم يُكتب حل)').replace(/\n/g, '<br>');
+    const sc = (studentScores[i] !== undefined && studentScores[i] !== '') ? studentScores[i] : '—';
+    html += '<div style="border:1px solid #ccc;border-radius:8px;padding:10px;margin:10px 0">'
+      + '<p style="background:#dbeafe;padding:6px;border-radius:6px"><b>س' + (i + 1) + ':</b> ' + q.statement.ar.replace(/<[^>]+>/g, '') + ' <span style="color:#b45309">(الدرجة: ' + sc + '/10)</span></p>'
+      + '<p><b>حل الطالب:</b><br>' + ans + '</p>'
+      + '<p style="color:#166534"><b>الحل النموذجي:</b> ' + q.steps.map(s => s.ar).join(' ← ') + ' ⇒ <b>' + q.final.ar + '</b></p></div>';
+  });
+  html += '</div>';
+  emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+    to_email: TARGET_EMAIL, student_name: name, student_class: klass, exam_date: date,
+    total_score: total, success_rate: total + '%', grade: document.getElementById('success-badge').textContent, answers_table: html
+  }).then(() => { status.textContent = currentLang === 'ar' ? '✅ أُرسلت الإجابات والدرجات بنجاح' : '✅ Sent successfully'; status.style.color = '#16a34a'; btn.disabled = false; })
+    .catch(err => { status.textContent = currentLang === 'ar' ? '❌ فشل الإرسال' : '❌ Failed'; status.style.color = '#dc2626'; btn.disabled = false; console.error(err); });
+}
+
+// ==================== TIMER / LANG / INIT ====================
+function updateTimerDisplay() { const m = Math.floor(timeRemaining / 60), s = timeRemaining % 60; document.getElementById('timer').textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0'); }
+function startTimer() {
+  updateTimerDisplay();
+  timerInterval = setInterval(() => {
+    timeRemaining--; updateTimerDisplay();
+    if (timeRemaining % 60 === 0) saveState(false);
+    if (timeRemaining <= 600) document.getElementById('timer').classList.add('timer-warning');
+    if (timeRemaining <= 0) { clearInterval(timerInterval); alert(currentLang === 'ar' ? '⏰ انتهى الوقت!' : "⏰ Time's up!"); }
+  }, 1000);
+}
+function setLanguage(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.body.classList.toggle('en-mode', lang === 'en');
+  document.querySelectorAll('[data-ar]').forEach(el => { el.textContent = el.getAttribute('data-' + lang); });
+  renderExam(); saveState(false);
+}
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = loadState();
+  if (saved) {
+    currentLang = saved.lang || 'ar';
+    studentAnswers = saved.answers || {}; studentScores = saved.scores || {}; studentChecks = saved.checks || {};
+    timeRemaining = (saved.timeRemaining !== undefined) ? saved.timeRemaining : TOTAL_TIME;
+    document.getElementById('studentName').value = saved.studentName || '';
+    document.getElementById('studentClass').value = saved.studentClass || '';
+    document.getElementById('examDate').value = saved.examDate || '';
+  }
+  document.getElementById('btn-ar').classList.toggle('active', currentLang === 'ar');
+  document.getElementById('btn-en').classList.toggle('active', currentLang === 'en');
+  document.body.classList.toggle('en-mode', currentLang === 'en');
+  document.documentElement.lang = currentLang; document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-ar]').forEach(el => { el.textContent = el.getAttribute('data-' + currentLang); });
+  ['studentName', 'studentClass', 'examDate'].forEach(id => {
+    const el = document.getElementById(id);
+    el.addEventListener('input', () => saveState(false));
+    el.addEventListener('blur', () => saveState(true));
+  });
+  renderExam();
+  document.getElementById('method-holder').innerHTML = svgGraphs.method;
+  startTimer();
+});
+window.addEventListener('beforeunload', () => saveState(false));
+</script>
+</body>
+</html>
